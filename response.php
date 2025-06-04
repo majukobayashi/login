@@ -26,8 +26,15 @@ if($_POST['usuario'] == 'admin' && $_POST['senha'] == 'senha'){
   <div class="container d-flex justify-content-center  min-vh-100 mt-5">
 
   <div class="alert alert-success " role="alert">
-  <h4 class="alert-heading mt-3 mr-5 ml-5">Seja bem vindo ao sistema XXXXX!</h4>
-  <button type="button" class="btn btn-outline-dark btn-block mt-4 mb-4">Ir para a proxima pagina</button>
+    <?php
+      echo" <h4 class='alert-heading mt-3 mr-5 ml-5'>Seja bem vindo ao sistema ". $_SESSION['usuario'] . "! </h4>";
+    ?>
+  <form action="dash.php" method="post">
+  <button type="submit" class="btn btn-outline-dark btn-block mt-4 mb-4">
+    Ir para a proxima pagina
+  </button>
+</form>
+
 </div>
   </div>
 
