@@ -23,14 +23,14 @@
       </header>
 
       <div class="p-4">
-        <form>
+        <form action="response.php" method="post" >
           <div class="form-group">
             <label for="username">Nome de Usuário</label>
-            <input type="text" class="form-control" id="username" placeholder="Seu nome de usuário">
+            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Seu nome de usuário">
           </div>
           <div class="form-group">
             <label for="password">Senha</label>
-            <input type="password" class="form-control" id="password" placeholder="Senha">
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
           </div>
           <button type="submit" class="btn btn-outline-dark btn-block">Entrar</button>
         </form>
@@ -41,7 +41,23 @@
       </footer>
 
     </div>
+    <?php
+    if(isset($_GET['return'])){
+      echo '
+    <div class="row justify-content-end fixed-bottom">
+      <div class="col-12 col-sm-6 col-md-4 ml-2 mr-2">
+        <div class="alert alert-warning">
+          <div class="alert alert-warning p-3">
+          <h4 class="text-center">
+          '.$_GET ['return'].'
+          </h4>
+          </div>
+          ';
+        }
+        ?>
+      </div>
+    </div>
   </div>
-
+      </div>
 </body>
 </html>
