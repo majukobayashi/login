@@ -1,10 +1,20 @@
 <?php
-if($_POST['usuario'] == 'admin' && $_POST['senha'] == 'senha'){
-    session_start();
-    $_SESSION['usuario'] = $_POST['usuario'];
+session_start();
 
-}else{
-  header('location: login.php?return= opa deu merda');
+if (!isset($_SESSION['usuario'])) {
+    if (isset($_POST['usuario']) && isset($_POST['senha'])) {
+  
+        if ($_POST['usuario'] === 'admin' && $_POST['senha'] === 'senha') {
+            $_SESSION['usuario'] = $_POST['usuario'];
+        } else {
+            header('Location: login.php?return=opa+deu+merda');
+            exit;
+        }
+    } else {
+      
+        header('Location: login.php?return=sem+dados');
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -29,11 +39,8 @@ if($_POST['usuario'] == 'admin' && $_POST['senha'] == 'senha'){
     <?php
       echo" <h4 class='alert-heading mt-3 mr-5 ml-5'>Seja bem vindo ao sistema ". $_SESSION['usuario'] . "! </h4>";
     ?>
-  <form action="dash.php" method="post">
-  <button type="submit" class="btn btn-outline-dark btn-block mt-4 mb-4">
-    Ir para a proxima pagina
-  </button>
-</form>
+    <a href="dash.php"  class="btn btn-outline-dark btn-block mt-4 mb-4">Ir para a proxima pagina</a>
+    <a href="logout.php"  class="btn btn-outline-dark btn-block mt-4 mb-4">Sair do sistema</a>
 
 </div>
   </div>

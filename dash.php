@@ -25,9 +25,11 @@ session_start();
             <h4 class="text-center">
                 Dashbord do sistema 
                 <?php
-            echo" <h4 class='alert-heading mt-3 mr-5 ml-5 text-center'>Bem vindo  ". $_SESSION['usuario'] . "! </h4>";
-            ?>
+                      echo" <h4 class='alert-heading mt-3 mr-5 ml-5 text-center'>Bem vindo  ". $_SESSION['usuario'] . "! </h4>";
+                 ?>
             </h4>
+            <a href="response.php"  class="btn btn-outline-dark btn-block mt-4 mb-4">Voltar para pagina</a>
+            <a href="logout.php"  class="btn btn-outline-dark btn-block mt-4 mb-4">Sair do sistema</a>
         </div>
     </div>
 </div>
